@@ -1,2 +1,8 @@
-package main;public class EmailNotification {
+package main;
+
+public class EmailNotification implements Notification{
+    @Override
+    public void notifyUser() {
+        System.out.println("Email notification!");
+    }
 }
