@@ -1,2 +1,8 @@
-package main;public interface Animal {
+package main;
+
+public interface Animal {
+
+    String getAnimal();
+    String makeSound();
+
 }

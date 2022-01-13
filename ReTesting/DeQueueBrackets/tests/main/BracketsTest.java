@@ -12,29 +12,36 @@ class BracketsTest {
 
 
     @BeforeAll
-    public static void setUp(){
+    public static void setUp() {
         brack = new Brackets();
     }
 
     @Test
-    public void sendingOneBracket_ShouldReturnFalse(){
+    public void sendingOneBracket_ShouldReturnFalse() {
         assertFalse(brack.isClosed("("));
     }
 
     @Test
-    public void sendingTwoClosedBrackets_ShouldReturnTrue(){
+    public void sendingTwoSameBrackets_ShouldReturnFalse() {
+        assertFalse(brack.isClosed("(("));
+    }
+
+
+    @Test
+    public void sendingTwoClosedBrackets_ShouldReturnTrue() {
         assertTrue(brack.isClosed("()"));
     }
 
     @Test
-    public void sendingNull_ShouldThrowException(){
-        IllegalArgumentException thrown = Assertions.assertThrows(IllegalArgumentException.class, () ->{
+    public void sendingNull_ShouldThrowException() {
+        IllegalArgumentException thrown = Assertions.assertThrows(IllegalArgumentException.class, () -> {
             brack.isClosed(null);
         });
         Assertions.assertEquals("try to put something inside", thrown.getMessage());
     }
+
     @Test
-    public void sendingMultipleClosedBrackets_ShouldReturnTrue(){
+    public void sendingMultipleClosedBrackets_ShouldReturnTrue() {
         assertTrue(brack.isClosed("(())"));
     }
 }

@@ -15,9 +15,13 @@ public class Brackets {
             Deque<Character> dequeue = new LinkedList<>(list);
             int halfOfDeque = dequeue.size() / 2;
             for (int i = 0; i <= halfOfDeque; i++) {
-                if (dequeue.pollFirst() == '(') {
-                    if (dequeue.pollLast() != ')') {
-                        return false;
+                if (dequeue.peekLast() != null) {
+                    if (dequeue.pollFirst() == '(') {
+                        if (dequeue.peekLast() != null) {
+                            if (dequeue.pollLast() != ')') {
+                                return false;
+                            }
+                        }
                     }
                 }
                 if (dequeue.size() == 0) {
