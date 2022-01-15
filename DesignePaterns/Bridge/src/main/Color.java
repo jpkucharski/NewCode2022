@@ -1,2 +1,5 @@
-package main;public class Color {
+package main;
+
+public interface Color {
+    String fill();
 }
